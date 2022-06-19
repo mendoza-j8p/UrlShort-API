@@ -29,7 +29,31 @@ La redirección no debe durar más de dos segundos
 
  Dependecias Spring Web y MySql Driver.
 
- 
+ Crear algunas carpetas para dividir lógicamente mi código. Mis carpetas en este caso son controlador, entidad, servicio, repositorio, dto y config.
+
+ ## Implementación
+
+ Dentro de la carpeta de la entidad, vamos a crear una clase Url.java con cuatro atributos: id, longUrl, createdDate, expiresDate.
+
+ A continuación, creemos un BaseService .java en la carpeta del servicio. BaseService contiene métodos para convertir de base 10 a base 62 y viceversa.
+
+ Dentro de la carpeta del repositorio, creemos el archivo UrlRepository.java , que es solo una extensión de JpaRepository y nos brinda muchos métodos como 'findById', 'save', etc.
+
+ Luego, creemos un archivo UrlController.java en la carpeta del controlador. El controlador debe tener un método POST para crear enlaces cortos y un método GET para redirigir a la URL original.
+
+ El método POST tiene UrlLongRequest como cuerpo de solicitud. Es solo una clase con atributos longUrl y expiresDate.
+
+ El método GET toma una URL corta como variable de ruta y luego obtiene y redirige a la URL original. En la parte superior del controlador, se inyecta UrlService como una dependencia
+
+ UrlService .java es donde se encuentra la mayor parte de la lógica y es el servicio utilizado por el controlador.
+
+ ConvertToShortUrl es utilizado por el método POST del controlador. Simplemente crea un nuevo registro en la base de datos y obtiene una identificación. Luego, la ID se convierte en un enlace corto de base 62 y se devuelve al controlador.
+
+ GetOriginalUrl es un método utilizado por el método GET del controlador. Primero convierte una cadena a base 10, y el resultado es una identificación. Luego obtiene un registro de la base de datos con esa identificación y lanza una excepción si no existe. Después de eso, devuelve la URL original al controlador.
+
+
+ Después de agregar las dependencias de Maven, es hora de agregar la configuración de Swagger. Dentro de la carpeta de configuración, necesitamos crear una nueva clase: SwaggerConfig .java
+
 
 
 
