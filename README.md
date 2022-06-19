@@ -17,3 +17,30 @@ El servicio debe estar en funcionamiento el 100% del tiempo
 La redirección no debe durar más de dos segundos
 
 ## Conversión de URL
+
+ La opción sería convertir números de base 10 a base 62.
+ La conversión de URL se puede implementar de varias formas diferentes, y cada forma tiene sus pros y sus contras.
+
+ El uso de la base 62 en la conversión de URL con una longitud máxima de siete caracteres nos permite tener 62^7 valores únicos para enlaces cortos.
+
+ Vamos a utilizar la función de incremento automático de nuestra base de datos. El número de incremento automático se utilizará para la conversión de base 62. Se puede usar cualquier otra base de datos que tenga una función de incremento automático.
+
+## Estructura
+
+ Dependecias Spring Web y MySql Driver.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+(https://desarrolloweb.com/articulos/trabajar-ramas-git.html)
