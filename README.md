@@ -66,5 +66,3 @@ La redirección no debe durar más de dos segundos
 
 
 
-
-(https://desarrolloweb.com/articulos/trabajar-ramas-git.html)
